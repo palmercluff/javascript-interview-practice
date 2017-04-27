@@ -1,5 +1,5 @@
 # javascript-interview-practice
-Repository for holding javascript-related practice problems.
+Repository for holding JavaScript-related practice problems. Also great for those learning JavaScript for the first time!
 
 - Practice Questions
   - What is the difference between declaring a variable with or without `var`?
