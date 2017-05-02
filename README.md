@@ -10,3 +10,7 @@ Repository for holding JavaScript-related practice problems. Also great for thos
   - Consider this puzzle: By starting from the number 1 and repeatedly either adding 5 or multiplying by 3, an infinite amount of new numbers can be produced. how would you write a function that, given a number, tries to find a sequence of additions and multiplications that produce that number? (See findsequence.js and findsequencetest.html)
   - Explain "mutability".
   - Explain "abstraction".
+  - Explain "inheritance".
+  - Explain "polymorphism"
+  - Explain "encapsulation"
+  - Explain "modularity"
