@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Options Popout</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      /* Controls box */
+      .theme-config{
+      position: absolute;
+      top: 90px;
+      right: 0;
+      overflow: hidden;
+      }
+
+      .theme-config-box {
+      margin-right: -300px;
+      position: relative;
+      z-index: 2000;
+      transition-duration: 0.8s;
+      }
+      .theme-config-box.show {
+      margin-right: 0;
+      }
+      .spin-icon {
+      background: #1ab394;
+      position: absolute;
+      padding: 7px 10px 7px 13px;
+      border-radius: 20px 0 0 20px;
+      font-size: 16px;
+      top: 0;
+      left: 0;
+      width: 40px;
+      color: #fff;
+      cursor: pointer;
+      }
+      .skin-settings {
+      width: 300px;
+      margin-left: 40px;
+      background: #f3f3f4;
+      }
+      .skin-settings .title {
+      background: #efefef;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: block;
+      padding: 10px 15px;
+      font-size: 12px;
+      }
+      .setings-item {
+      padding: 10px 30px;
+      }
+      .setings-item .switch {
+      float: right;
+      }
+
+      /* SWITCHES */
+      .onoffswitch {
+      position: relative;
+      width: 54px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      }
+      .onoffswitch-checkbox {
+      display: none;
+      }
+      .onoffswitch-label {
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid #1AB394;
+      border-radius: 3px;
+      }
+      .onoffswitch-inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      -moz-transition: margin 0.3s ease-in 0s;
+      -webkit-transition: margin 0.3s ease-in 0s;
+      -o-transition: margin 0.3s ease-in 0s;
+      transition: margin 0.3s ease-in 0s;
+      }
+      .onoffswitch-inner:before,
+      .onoffswitch-inner:after {
+      display: block;
+      float: left;
+      width: 50%;
+      height: 16px;
+      padding: 0;
+      line-height: 16px;
+      font-size: 10px;
+      color: white;
+      font-family: Trebuchet, Arial, sans-serif;
+      font-weight: bold;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      }
+      .onoffswitch-inner:before {
+      content: "ON";
+      padding-left: 7px;
+      background-color: #1AB394;
+      color: #FFFFFF;
+      }
+      .onoffswitch-inner:after {
+      content: "OFF";
+      padding-right: 7px;
+      background-color: #FFFFFF;
+      color: #919191;
+      text-align: right;
+      }
+      .onoffswitch-switch {
+      display: block;
+      width: 18px;
+      margin: 0;
+      background: #FFFFFF;
+      border: 2px solid #1AB394;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 36px;
+      -moz-transition: all 0.3s ease-in 0s;
+      -webkit-transition: all 0.3s ease-in 0s;
+      -o-transition: all 0.3s ease-in 0s;
+      transition: all 0.3s ease-in 0s;
+      }
+      .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+      margin-left: 0;
+      }
+      .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+      right: 0;
+      }
+
+      /* Timer */
+      .input-field{
+      width:54px;
+      }
+    </style>
+  </head>
+  <div class="theme-config">
+    <div class="theme-config-box">
+      <div class="spin-icon">
+	<i class="fa fa-cogs fa-spin"></i>
+      </div>
+      <div class="skin-settings">
+	<div class="title">Options<br>
+	  <small style="text-transform: none;font-weight: 400">Change settings here.</small>
+	</div>
+	<div class="setings-item">
+	  <span>
+	    Multiple Submissions
+	  </span>
+
+	  <div class="switch">
+	    <div class="onoffswitch">
+	      <input type="checkbox" name="canAnswerMultipleTimes" class="onoffswitch-checkbox" id="canAnswerMultipleTimes">
+	      <label class="onoffswitch-label" for="canAnswerMultipleTimes">
+		<span class="onoffswitch-inner"></span>
+		<span class="onoffswitch-switch"></span>
+	      </label>
+	    </div>
+	  </div>
+	</div>
+	<div class="setings-item">
+	  <span>
+	    Hide Submissions
+	  </span>
+
+	  <div class="switch">
+	    <div class="onoffswitch">
+	      <input type="checkbox" name="toggleStudentAnswers" class="onoffswitch-checkbox" id="toggleStudentAnswers">
+	      <label class="onoffswitch-label" for="toggleStudentAnswers">
+		<span class="onoffswitch-inner"></span>
+		<span class="onoffswitch-switch"></span>
+	      </label>
+	    </div>
+	  </div>
+	</div>
+	<div class="setings-item">
+	  <span>
+	    Hide Graph
+	  </span>
+
+	  <div class="switch">
+	    <div class="onoffswitch">
+	      <input type="checkbox" name="toggleGraph" class="onoffswitch-checkbox" id="toggleGraph">
+	      <label class="onoffswitch-label" for="toggleGraph">
+		<span class="onoffswitch-inner"></span>
+		<span class="onoffswitch-switch"></span>
+	      </label>
+	    </div>
+	  </div>
+	</div>
+	<div class="setings-item">
+	  <span>
+	    Timer
+	  </span>
+	  <div class="switch">
+	    <div class="onoffswitch">
+	      <input type="number" id="seconds" class="input-field" value="30"/>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Config box
+    $('.spin-icon').click(function(){
+    $('.theme-config-box').toggleClass('show');
+    });
+
+    // If the teacher wants to allow student to answer multiple times throughout the question interval
+    $("#canAnswerMultipleTimes").change(function() {
+    if(this.checked) {
+    alert('canAnswerMultipleTimes is on');
+    }
+    else{
+    alert('canAnswerMultipleTimes is off');
+    }
+    });
+
+    // If the teacher wants to show student answer box
+    $("#toggleStudentAnswers").change(function() {
+    if(this.checked) {
+    alert('toggleStudentAnswers is on');
+    }
+    else{
+    alert('toggleStudentAnswers is off');
+    }
+    });
+
+    // If the teacher wants to hide the graph
+    $("#toggleGraph").change(function() {
+    if(this.checked) {
+    alert('toggleGraph is on');
+    }
+    else{
+    alert('toggleGraph is off');
+    }
+    });
+  </script>
+</html>
